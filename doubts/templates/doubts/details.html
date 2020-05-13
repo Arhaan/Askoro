@@ -1,0 +1,77 @@
+{% extends "doubts/base.html" %}
+{% block content %}
+{% load static %}
+{%load doubts_extras%}
+<link rel="stylesheet" type="text/css" href="{% static 'doubts/style.css' %}">
+
+<div id='main-box'>
+<div>
+<div class="voting-question float-left" style='padding-right: 10px'>
+    {%if user|has_upvotedques:question%}
+    <div class="button ques-upvoted" ><a style="color:  #f48024;" class= "btn btn-light" href = "{%url 'doubts:vote-question' question.id 1%}"><i class="fa fa-arrow-up" ></i></a></div>
+    {%else%}
+    <div class="button" ><a style = "color:  #131010;" class= "btn btn-light"href = "{%url 'doubts:vote-question' question.id 1%}"><i class="fa fa-arrow-up" ></i></a></div>
+    {%endif%}
+    <div class="votes" style="padding-left: 15px;">{{question.hardness_points}}</div>
+    {%if user|has_downvotedques:question%}
+    <div class="button ques-downvoted"><a style = "color:  #f48024;" class= "btn btn-light"href= "{%url 'doubts:vote-question' question.id 0%}"><i class="fa fa-arrow-down"></i></a></div>
+    {%else%}
+    <div class="button"><a style = "color:  #131010;" class= "btn btn-light"href= "{%url 'doubts:vote-question' question.id 0%}"><i class="fa fa-arrow-down"></i></a></div>
+    {%endif%}
+</div>
+<div id='ques-title'>
+    <h2>{{question}}</h2>
+</div>
+<div id="details">
+    <p>{{question.text}}</p>
+    <small class='text-muted'>Asked By : <a class="profile-link" href={%url 'doubts:user-index' question.asker.id %}>{{question.asker}}</a></small>
+    {%if question.asker == user%}
+        <a class="float-right btn btn-outline-secondary btn-sm" href="{%url 'doubts:edit-question' question.pk%}">Edit</a>
+    {%endif%}
+</div>
+</div>
+<div id="answers" style="padding-top: 25px;padding-right: 10px;padding-bottom: 5px;">
+<div id="answer-headers" style="padding-bottom: 10px; overflow: hidden;">
+    <h2 class="float-left">{{question.answer_set.count}} Answer{{question.answer_set.count|pluralize}}</h2>
+    {%if not user|has_answered:question%}
+    <div class="float-right">
+        <a class="btn btn-outline-secondary btn-sm" href="{%url 'doubts:create-answer' question.pk%}">Answer</a>
+    </div>
+    {%endif%}
+</div>
+{%for answer in question|get_answer_set%}
+<div>
+    <div class="voting-answer float-left" style='padding-right: 10px'>
+        {%if user|has_upvotedans:answer%}
+        <div class="button" ><a style = "color:  #f48024;" class= "btn btn-light"href = "{%url 'doubts:vote-answer' answer.id 1%}"><i class="fa fa-arrow-up" ></i></a></div>
+        {%else%}
+        <div class="button" ><a style = "color:  #131010;" class= "btn btn-light"href = "{%url 'doubts:vote-answer' answer.id 1%}"><i class="fa fa-arrow-up" ></i></a></div>
+        {%endif%}
+        <div class="votes" style="padding-left: 15px;">{{answer.upvotes}}</div>
+        {%if user|has_downvotedans:answer%}
+        <div class="button"><a style = "color:  #f48024;"  class= "btn btn-light"href= "{%url 'doubts:vote-answer' answer.id 0%}"><i class="fa fa-arrow-down"></i></a></div>
+        {%else%}
+        <div class="button"><a style = "color:  #131010;" class= "btn btn-light"href= "{%url 'doubts:vote-answer' answer.id 0%}"><i class="fa fa-arrow-down"></i></a></div>
+        {%endif%}
+    </div>
+    <div id='answer-box'>
+        <div id="answer-text">{{answer.text}}</div>
+        {%if answer.author == user%}
+        <div id='answer-other-details' style="padding-top: 15px;" class='float-right'>
+            <small class="text-muted" style="text-align: center;">Your Answer</a></small></br>
+            <small class="text-muted float-right"><a class=" btn btn-outline-secondary btn-sm" href="{%url 'doubts:edit-answer' question.pk answer.pk%}">Edit</a>
+                <a class=" btn btn-outline-secondary btn-sm" href="{%url 'doubts:delete-answer' question.pk answer.pk%}">Delete</a>
+            </small>
+        </div>
+        {%else%}
+            <div id='answer-other-details' style="padding-top: 15px;" class='float-right'>
+                <small class="text-muted">Answered By: <a href="{%url 'doubts:user-index' answer.author.id %}" class="profile-link">{{answer.author}}</a></small></br>
+                <small class="text-muted">{{answer.date_answered}}</small>
+            </div>
+        {%endif%}
+    </div>
+</div>
+{%endfor%}
+</div>
+</div>
+{%endblock content%}

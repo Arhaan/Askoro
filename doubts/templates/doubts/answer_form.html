@@ -1,0 +1,17 @@
+{%extends "doubts/base.html"%}
+{% load crispy_forms_tags%}
+{%block content%}
+<div class="content-section pd-8 ">
+    <form method="POST">
+        {%csrf_token%}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                Answer
+            </legend>
+            {{form|crispy}}
+        </fieldset>
+        <div class="form-group" style="text-align: right;"><button class="btn btn-outline-success" type="submit">Publish</button></div>
+    </form>
+</div>
+
+{%endblock content %}

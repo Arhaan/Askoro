@@ -1,0 +1,11 @@
+{% extends "doubts/base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'doubts/style.css' %}">
+<div class="text-center">
+    <h1><code>{{object.username}}</code></h1></br>
+    <h5 class="font-weight-light"><code>Questions Asked: {{object.profile.questions_asked}}</code></h5></br>
+    <h5 class="font-weight-light"><code>Answers Published: {{object.profile.questions_answered}}</code></h5></br>
+    <h5 class="font-weight-light"><code>Karma Points: {{object.profile.karma_points}}</code></h5></br>
+</div>
+{% endblock content%}

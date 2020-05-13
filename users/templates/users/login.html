@@ -1,0 +1,32 @@
+{%extends "doubts/base.html"%}
+{%load static%}
+{% load crispy_forms_tags%}
+{%block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'doubts/style.css' %}">
+
+{%if next%}
+    <p class = "alert alert-secondary"><i class="fas fa-exclamation-circle" ></i>     You need to be logged in to access this page.</p>
+{%endif%}
+<div class="content-section pd-8 ">
+
+    <form method="POST">
+        {%csrf_token%}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                <h2>Sign In</h2>
+            </legend>
+            <p>{{form|crispy}}</p>
+        </fieldset>
+        <div class="form-group" style="text-align: center;"><button class="btn btn-outline-info" type="submit">Log In</button></div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted float-left">
+            <a href="{%url 'password_reset'%}">Forgot Password?</a>
+        </small>
+        <small class="text-muted float-right">
+            Don't have an account? <a class= "ml-2" href="{%url 'signup'%}">Sign Up Today!</a>
+        </small>
+    </div>
+</div>
+
+{%endblock content %}

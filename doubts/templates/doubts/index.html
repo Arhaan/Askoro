@@ -1,0 +1,44 @@
+{% extends "doubts/base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'doubts/style.css' %}">
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+    <div class="card poll-card" style="margin-bottom: 10px;">
+        <div class="card-header" style="padding-bottom: 8px;padding-top: 8px;">
+            <div class="article-metadata">
+                <span class="badge badge-pill badge-dark">{{question.get_subject_display}}</span> <small class="mr-2 text-muted" style="
+                margin-left: 5px;
+            ">| Posted By <a href="{%url 'doubts:user-index' question.asker.id %}" class="profile-link">{{ question.asker }}</a></small>
+          </div>
+        </div>
+        <div class="card-body" style="padding-bottom: 5px;padding-top: 15px;">
+            <h5><a class="question-link" href="{%url 'doubts:details' question.id%}">{{ question }}</a></h5>
+        </div>
+    </div>
+    {% endfor %}
+    </ul>
+    <div class="btn-group float-right" role="group" aria-label="Basic example">
+        {%if page_obj.has_previous%}
+            <a class="btn btn-light" href="?page=1"><i class="fas fa-angle-double-left"></i></a>
+            <a class="btn btn-light" href="?page={{page_obj.previous_page_number}}"><i class="fas fa-angle-left"></i></a>
+        {%endif%}
+        {%for num in page_obj.paginator.page_range%}
+            {%if num == page_obj.number%}
+                <button type="button" class="btn btn-secondary">{{ num }}</button>
+            {%elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'%}
+                <a class="btn btn-light" href="?page={{num}}">{{ num }}</a>
+            {%endif%}
+        {%endfor%}
+        {%if page_obj.has_next%}
+            <a class="btn btn-light" href='?page={{page_obj.next_page_number}}'><i class="fas fa-angle-right"></i></a>
+            <a class="btn btn-light" href="?page={{page_obj.paginator.num_pages}}"><i class="fas fa-angle-double-right"></i></a>
+        {%endif%}
+      </div>
+
+{% else %}
+    <h3 class='text-center'>No questions. Much Wow.</h3>
+{% endif %}
+{% endblock content%}

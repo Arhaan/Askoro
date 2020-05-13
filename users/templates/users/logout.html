@@ -1,0 +1,12 @@
+{%extends "doubts/base.html"%}
+{%load static%}
+{% load crispy_forms_tags%}
+{%block content%}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+    <p class = "alert alert-info">You have been logged out.</p>
+    <div class="border-top pt-3" style="text-align: right;">
+        <small class="text-muted">
+            <a href="{%url 'login'%}">Login Again</a>
+        </small>
+    </div>
+{%endblock content %}

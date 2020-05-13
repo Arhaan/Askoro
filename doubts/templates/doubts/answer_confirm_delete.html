@@ -1,0 +1,18 @@
+{%extends "doubts/base.html"%}
+{%block content%}
+<div class="content-section pd-8 ">
+    <form method="POST">
+        {%csrf_token%}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                Are you sure you want to delete that answer?
+            </legend>
+        </fieldset>
+        <div class="form-group"><button class="btn btn-outline-danger" type="submit">Delete</button>
+            <a class="btn btn-outline-secondary" style="margin-left: 20px;" href="{% url 'doubts:details' object.question.id %}">Cancel</a>
+        </div>
+
+    </form>
+</div>
+
+{%endblock content %}

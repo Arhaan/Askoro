@@ -1,0 +1,64 @@
+
+
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+}
+p, div{
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+}
+
+a.ques-upvoted{
+    color:  rgb(21, 218, 37);
+}
+a.ques-downvoted{
+    color:  rgb(228, 21, 21);
+}
+
+.body{
+    font-family: 'Roboto', sans-serif;
+}
+
+a.question-link{
+    color: #366FB3;
+    text-decoration: none;
+}
+a.question-link:hover{
+    color: #4CA3D7;
+    text-decoration: none;
+}
+
+a.question-link:visited{
+    color: #12457C;
+    text-decoration: none;
+}
+
+.article-metadata{
+    color: #999;
+}
+
+a.profile-link{
+    color: rgb(31, 99, 168);
+    text-decoration: none;
+}
+a.profile-link:visited{
+    color: #12457C;
+    text-decoration: none;
+}
+
+a.profile-link:hover{
+    color: rgb(8, 155, 240);
+    text-decoration : none;
+}
+
+#answer-box{
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding-bottom: 25px;padding-left: 10px;padding-top: 25px; overflow: hidden;
+}
+
+body {
+    background: url(background.png) repeat 0 0;
+}
+
