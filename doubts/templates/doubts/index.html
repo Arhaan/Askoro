@@ -20,6 +20,7 @@
     </div>
     {% endfor %}
     </ul>
+    {%ifnotequal page_obj.paginator.num_pages 1%}
     <div class="btn-group float-right" role="group" aria-label="Basic example">
         {%if page_obj.has_previous%}
             <a class="btn btn-light" href="?page=1"><i class="fas fa-angle-double-left"></i></a>
@@ -37,7 +38,7 @@
             <a class="btn btn-light" href="?page={{page_obj.paginator.num_pages}}"><i class="fas fa-angle-double-right"></i></a>
         {%endif%}
       </div>
-
+    {%endifnotequal%}
 {% else %}
     <h3 class='text-center'>No questions. Much Wow.</h3>
 {% endif %}
