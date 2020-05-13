@@ -25,9 +25,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-nav mr-auto">
-      </div>
-      <div class="navbar-nav">
-          {%if user.is_authenticated%}
+        {%if user.is_authenticated%}
             <a class="btn btn-outline-info nav-link" href="{% url 'doubts:create-question' %}" style="margin-right:25px">Ask Question</a>
             <a class="nav-link" href="{%url 'doubts:user-index' user.id%}">{{user.username}}</a>
             <a class="nav-link " href="{%url 'logout'%}"><small class="text-muted"><i class="fas fa-sign-out-alt"></i> Logout</small></a>
