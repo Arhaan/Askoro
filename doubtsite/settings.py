@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DOUBTSITE_SECRET_KEY')
+SECRET_KEY = os.environ.get('DOUBTSITE_SECRET_KEY', 'aslvjbaskfbweuofbb1234rqwer')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -121,7 +121,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -138,4 +138,3 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 DEFAULT_FROM_EMAIL = 'arhaan_doubtsite@gmail'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
