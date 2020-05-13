@@ -137,3 +137,5 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 
 DEFAULT_FROM_EMAIL = 'arhaan_doubtsite@gmail'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
