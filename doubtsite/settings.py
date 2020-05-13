@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('DOUBTSITE_SECRET_KEY', 'aslvjbaskfbweuofbb1234rqwer
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["askoro.herokuapp.com"]
 
 
 # Application definition
