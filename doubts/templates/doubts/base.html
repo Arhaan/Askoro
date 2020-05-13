@@ -17,13 +17,14 @@
     <title>Askoro</title>
   </head>
   <body>
+    <div style="min-height: 100%;">
     <!--Navbar Starts-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
       <a class="navbar-brand" href="{%url 'doubts:index'%}"><h>Askoro</h></a>
       <div class="collapse navbar-collapse" id="navbarToggle">
         <div class="navbar-nav mr-auto">
-          
+
         </div>
       <div class="navbar-nav ">
         {%if user.is_authenticated%}
@@ -55,6 +56,17 @@
         </div>
 
     </main>
+  </div>
+    <footer class="page-footer font-small pt-4" style='width: 100%;
+    height: 200px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    z-index: 12;
+    bottom:0'></footerclass>
+      <div class="footer-copyright text-center py-3">
+        Made by <a href="mailto:arhaan.ahmad2003@gmail.com">Arhaan Ahmad</a>
+      </div>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
