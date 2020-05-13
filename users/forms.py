@@ -8,6 +8,11 @@ class UserRegisterForm(UserCreationForm):
         self.helper=FormHelper()
         self.helper.help_text_inline = True
         super().__init__(*args, **kwargs)
+    def clean_email(self):
+        if User.objects.filter(email=self.cleaned_data['email']).exists():
+            raise forms.ValidationError("The given email is already registered. Sign in instead.")
+        return self.cleaned_data['email']
+
     class Meta:
         model=User
         fields = ['username', 'email', 'password1', 'password2']
