@@ -14,6 +14,7 @@ class Question(models.Model):
         ('M', 'Mathematics'),
         ('P', 'Physics'),
         ('C', 'Chemistry'),
+        ('CS', 'Computer Science')
     ]
     # CHAPTER_CHOICES = [
     #     ('APE', 'Alcohol, Phenol And Ethers'),
@@ -22,12 +23,12 @@ class Question(models.Model):
     #     ('CPPSL1', 'CPP Subjective Level 1'),
     #     ('CPPSL2', 'CPP Subjective Level 2'),
     #     ('CPPOL2', 'CPP Objective Level 2'),
-    #     ('CPPOL1', 'CPP Objective Level 2'),#TODO: Add more excercise types
+    #     ('CPPOL1', 'CPP Objective Level 2'),
     # ]
     asker= models.ForeignKey(get_user_model(), on_delete=models.SET(get_sentinel_user))
     title = models.CharField(max_length=100)
-    text = models.TextField()
-    subject=models.CharField(max_length=1, choices=SUBJECT_CHOICES, default='C')
+    text = models.TextField(null= True)
+    subject=models.CharField(max_length=2, choices=SUBJECT_CHOICES, default='C')
     hardness_points= models.IntegerField(default = 0)
     date_asked=models.DateTimeField('Date Asked', auto_now_add=True)
     no_of_answers = models.IntegerField(default=0)
