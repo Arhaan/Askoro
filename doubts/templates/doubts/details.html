@@ -23,7 +23,7 @@
     <h2>{{question}}</h2>
 </div>
 <div id="details">
-    <p>{{question.text}}</p>
+    <p>{{question.text|linebreaks}}</p>
     <small class='text-muted'>Asked By : <a class="profile-link" href={%url 'doubts:user-index' question.asker.id %}>{{question.asker}}</a></small>
     {%if question.asker == user%}
         <a class="float-right btn btn-outline-secondary btn-sm" href="{%url 'doubts:edit-question' question.pk%}">Edit</a>
@@ -55,7 +55,7 @@
         {%endif%}
     </div>
     <div id='answer-box'>
-        <div id="answer-text">{{answer.text}}</div>
+        <div id="answer-text">{{answer.text|linebreaks}}</div>
         {%if answer.author == user%}
         <div id='answer-other-details' style="padding-top: 15px;" class='float-right'>
             <small class="text-muted" style="text-align: center;">Your Answer</a></small></br>
