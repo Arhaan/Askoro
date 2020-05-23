@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DOUBTSITE_SECRET_KEY')
-
+#SECRET_KEY = "asvjkbvasvbasdhkbvwjkuweofbuwabfa"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DEBUG_VALUE') == "True")
-#DEBUG = False
+#DEBUG = True
 ALLOWED_HOSTS = ["askoro.herokuapp.com"]
 
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'doubts.apps.DoubtsConfig',
     'crispy_forms',
     'six',
+    'social_djangi',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +71,10 @@ TEMPLATES = [
         },
     },
 ]
-
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 WSGI_APPLICATION = 'doubtsite.wsgi.application'
 
