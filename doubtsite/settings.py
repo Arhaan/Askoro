@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'doubts.apps.DoubtsConfig',
     'crispy_forms',
     'six',
-    'social_djangi',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +71,7 @@ TEMPLATES = [
     },
 ]
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.GoogleOAuth2',
+
     'django.contrib.auth.backends.ModelBackend',
 )
 
