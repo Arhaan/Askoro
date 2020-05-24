@@ -82,10 +82,6 @@ TEMPLATES = [
         },
     },
 ]
-AUTHENTICATION_BACKENDS = (
-
-    'django.contrib.auth.backends.ModelBackend',
-)
 
 WSGI_APPLICATION = 'doubtsite.wsgi.application'
 
@@ -180,5 +176,5 @@ SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
    'fields': 'id, name, email'
 }
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = ''
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_URL = '/'
