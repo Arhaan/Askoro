@@ -5,19 +5,59 @@
 <link rel="stylesheet" type="text/css" href="{% static 'doubts/style.css' %}">
 
 <div class="content-section pd-8 ">
+
     <form method="POST">
         {%csrf_token%}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">
                 <h2>Make an account</h2>
             </legend>
-            <p>{{form|crispy}}</p>
+            <div class='oauth-main' style="text-align: center;margin-bottom: 20px;">
+                <div class="row">
+                    <div class="col-md-3 oauth-box">
+                        <a class="btn btn-outline-dark"
+                            href="{% url 'social:begin' 'google-oauth2' %}" role="button"
+                            style="text-transform:none">
+                            <i class="fab fa-google" width="20px" style="margin-bottom:3px; margin-right:5px"></i>
+
+                            Continue with Google
+                        </a>
+                    </div>
+                    <div class="col-md-3 oauth-box">
+                        <a class="btn btn-outline-dark"
+                            href="{% url 'social:begin' 'google-oauth2' %}" role="button"
+                            style="text-transform:none">
+                            <i class="fab fa-twitter" width="20px" style="margin-bottom:3px; margin-right:5px"></i>
+                            Continue with Twitter
+                        </a>
+                    </div>
+                    <div class="col-md-3 oauth-box">
+                        <a class="btn btn-outline-dark"
+                            href="{% url 'social:begin' 'google-oauth2' %}" role="button"
+                            style="text-transform:none">
+                            <i class="fab fa-facebook-f" width="20px" style="margin-bottom:3px; margin-right:5px"></i>
+                            Continue with Facebook
+                        </a>
+                    </div>
+                    <div class="col-md-3 oauth-box">
+                        <a class="btn btn-outline-dark"
+                            href="{% url 'social:begin' 'github' %}" role="button"
+                            style="text-transform:none">
+                            <i class="fab fa-github" width="20px" style="margin-bottom:3px; margin-right:5px"></i>
+                            Continue with Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class='auth-box'><p>{{form|crispy}}</p></div>
         </fieldset>
-        <div class="form-group" style="text-align: center;"><button class="btn btn-outline-info" type="submit">Sign up</button></div>
+        <div class="form-group" style="text-align: center;"><button class="btn btn-outline-info" type="submit">Sign
+                up</button></div>
     </form>
     <div class="border-top pt-3 float-right">
         <small class="text-muted">
-            Already have an account? <a class= "ml-2" href="{%url 'login'%}">Sign In</a>
+            Already have an account? <a class="ml-2" href="{%url 'login'%}">Sign In</a>
         </small>
     </div>
 </div>

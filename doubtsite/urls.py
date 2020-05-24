@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from users import views as user_views
 from django.contrib.auth import views as auth_views
+from decouple import config
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(config('ADMIN_URL'), admin.site.urls),
     path('signup/', user_views.signup, name='signup'),
     path('login/', auth_views.LoginView.as_view(template_name="users/login.html"), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name="users/logout.html"), name='logout'),
     path('',include('doubts.urls', namespace='doubts')),
+    path('', include('social_django.urls', namespace='social')),
+
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name='users/password_reset.html'), name='password_reset'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='users/password_reset_done.html'), name='password_reset_done'),
     path('password_reset_confirm/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(template_name='users/password_reset_confirm.html'), name='password_reset_confirm'),
@@ -30,5 +34,6 @@ urlpatterns = [
 
     path('email_verification_confirm/<uidb64>/<token>', user_views.email_verification_confirm,name='email_verification_confirm'),
     path('email_verification_done/', user_views.email_verification_done ,name='email_verification_done'),
+    path('privacy_policy/', user_views.privacy_policy ,name='privacy_policy'),
 
 ]

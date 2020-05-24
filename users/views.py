@@ -52,3 +52,5 @@ def email_verification_confirm(request, uidb64, token):
         return render(request, 'account_activation_invalid.html')
 def email_verification_done(request):
     return render(request, 'email_veri_done.html')
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
