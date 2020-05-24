@@ -151,8 +151,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL='doubts:index'
 LOGIN_URL = 'login'
 
-ADMIN_ENABLEDEBUG = (os.environ.get('DEBUG_VALUE') == "True")
-D = False
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
