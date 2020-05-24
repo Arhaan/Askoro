@@ -54,12 +54,10 @@
                 </div>
             </div>
 
-            <div class = 'auth-box'style="border-width: 1px; border-style: solid; border-radius: 5px;"><p>{{form|crispy}}</p></div>
-        </fieldset>
-        <div class="form-group" style="text-align: center;"><button class="btn btn-outline-info" type="submit">Log
+            <div class = 'auth-box'style="border-width: 1px; border-style: solid; border-radius: 5px;"><p>{{form|crispy}}</p>
+            <div class="form-group" style="text-align: center;"><button class="btn btn-outline-info" type="submit">Log
                 In</button></div>
-    </form>
-    <div class="border-top pt-3">
+            <div class="border-top pt-3">
         <small class="text-muted float-left">
             <a href="{%url 'password_reset'%}">Forgot Password?</a>
         </small>
@@ -67,5 +65,10 @@
             Don't have an account? <a class="ml-2" href="{%url 'signup'%}">Sign Up Today!</a>
         </small>
     </div>
+            </div>
+        </fieldset>
+
+    </form>
+
 </div>
 {%endblock content %}
