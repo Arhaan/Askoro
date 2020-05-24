@@ -17,7 +17,6 @@ a.ques-downvoted{
 }
 
 .body{
-    font-family: 'Roboto', sans-serif;
 }
 
 a.question-link{
@@ -60,5 +59,23 @@ a.profile-link:hover{
 
 body {
     background: url(background.png) repeat 0 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.oauth-box{
+    margin-bottom: 10px;
+}
+.oauth-main{
+    padding-bottom: 15px;
+}
+.auth-box{
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    overflow: hidden;
 }
 

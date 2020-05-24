@@ -5,7 +5,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'doubts/style.css' %}">
 
 {%if next%}
-    <p class = "alert alert-secondary"><i class="fas fa-exclamation-circle" ></i>     You need to be logged in to access this page.</p>
+<p class="alert alert-secondary"><i class="fas fa-exclamation-circle"></i> You need to be logged in to access this page.
+</p>
 {%endif%}
 <div class="content-section pd-8 ">
 
@@ -15,18 +16,59 @@
             <legend class="border-bottom mb-4">
                 <h2>Sign In</h2>
             </legend>
-            <p>{{form|crispy}}</p>
-        </fieldset>
-        <div class="form-group" style="text-align: center;"><button class="btn btn-outline-info" type="submit">Log In</button></div>
-    </form>
-    <div class="border-top pt-3">
+            <div class='oauth-main' style="text-align: center;margin-bottom: 20px;">
+                <div class="row">
+                    <div class="col-md-3 oauth-box">
+                        <a class="btn btn-outline-dark"
+                            href="{% url 'social:begin' 'google-oauth2' %}" role="button"
+                            style="text-transform:none">
+                            <i class="fab fa-google" width="20px" style="margin-bottom:3px; margin-right:5px"></i>
+
+                            Continue with Google
+                        </a>
+                    </div>
+                    <div class="col-md-3 oauth-box">
+                        <a class="btn btn-outline-dark"
+                            href="{% url 'social:begin' 'twitter' %}" role="button"
+                            style="text-transform:none">
+                            <i class="fab fa-twitter" width="20px" style="margin-bottom:3px; margin-right:5px"></i>
+                            Continue with Twitter
+                        </a>
+                    </div>
+                    <div class="col-md-3 oauth-box">
+                        <a class="btn btn-outline-dark"
+                            href="{% url 'social:begin' 'facebook' %}" role="button"
+                            style="text-transform:none">
+                            <i class="fab fa-facebook-f" width="20px" style="margin-bottom:3px; margin-right:5px"></i>
+                            Continue with Facebook
+                        </a>
+                    </div>
+                    <div class="col-md-3 oauth-box">
+                        <a class="btn btn-outline-dark"
+                            href="{% url 'social:begin' 'github' %}" role="button"
+                            style="text-transform:none">
+                            <i class="fab fa-github" width="20px" style="margin-bottom:3px; margin-right:5px"></i>
+                            Continue with Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class = 'auth-box'style="border-width: 1px; border-style: solid; border-radius: 5px;"><p>{{form|crispy}}</p>
+            <div class="form-group" style="text-align: center;"><button class="btn btn-outline-info" type="submit">Log
+                In</button></div>
+            <div class="border-top pt-3">
         <small class="text-muted float-left">
             <a href="{%url 'password_reset'%}">Forgot Password?</a>
         </small>
         <small class="text-muted float-right">
-            Don't have an account? <a class= "ml-2" href="{%url 'signup'%}">Sign Up Today!</a>
+            Don't have an account? <a class="ml-2" href="{%url 'signup'%}">Sign Up Today!</a>
         </small>
     </div>
-</div>
+            </div>
+        </fieldset>
 
+    </form>
+
+</div>
 {%endblock content %}
