@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'doubtsite.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Askoro.settings')
 
 application = get_asgi_application()

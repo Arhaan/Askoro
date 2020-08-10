@@ -1,1 +1,1 @@
-web: gunicorn doubtsite.wsgi
+web: gunicorn Askoro.wsgi
